@@ -29,7 +29,13 @@
             <td>{{$post->id}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->body}}</td>
-            <td>{{ $post->user->email}}</td>
+            {{-- <td>{{ $post->user->name}}</td> --}}
+            <td><a href="{{ route('user.posts',$post->user->id)}}" >{{ $post->user->name}}</a></td>
+
+
+
+            {{-- <td><a  href="{{route('user.posts', $post->user->id)}}" >{{ $post->user->name}}</a></td> --}}
+
             <td><a class="btn btn-primary" href="{{ route('posts.edit',$post->id)}}" >Edit</a></td>
             <td><a class="btn btn-primary" href="{{ route('posts.show',$post->id) }}">Show</a></td>
             <td>

@@ -5,6 +5,8 @@
     margin-top: 40px;
   }
 </style>
+
+        
 <div class="card uper">
   <div class="card-header">
     Create Post
@@ -34,4 +36,5 @@
       </form>
   </div>
 </div>
+
 @endsection

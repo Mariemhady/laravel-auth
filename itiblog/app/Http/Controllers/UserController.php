@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class StuController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class StuController extends Controller
      */
     public function index()
     {
-        $students = Student::all(); 
-        return view("student.students", ["data"=>$students]);
+        $users = User::all();
+        return view("users.index", ["data"=>$users]);
     }
 
     /**
@@ -25,7 +25,7 @@ class StuController extends Controller
      */
     public function create()
     {
-        return view("student.create");
+        //
     }
 
     /**
@@ -36,60 +36,60 @@ class StuController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name'=>'required|min: 4',
-            'email'=>'required|email',
-            'age'=>'numeric'
-        ]);
-        Student::create($request->all()); //save database
-        return redirect()->route('students.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show(User $user)
     {
-        return view("student.show", ["data"=>$student]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(User $user)
     {
         //
-        return view("student.edit", ["data"=>$student]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, User $user)
     {
-        $student->update($request->all());
-        return view("student.show", ["data"=>$student]);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(User $user)
     {
-        $student->delete();
-        return redirect()->route('students.index');
+        //
+    }
+
+    public function getPosts(User $user){
+        // dd($user);
+        $posts = $user->posts;
+        // dd($posts);
+        return view('users.posts', ["data"=>$posts, "user"=>$user]);
+
+
     }
 }

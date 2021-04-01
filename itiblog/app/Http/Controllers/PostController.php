@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 // use App\Post; // model
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -13,6 +14,12 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $posts = Post::all(); 
@@ -64,9 +71,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
-        dd($post->user);
-        return view("posts.show", ["data"=>$post]);
-
+        // dd($post->user);
+  
+            return view("posts.show", ["post"=>$post]);
     }
 
     /**

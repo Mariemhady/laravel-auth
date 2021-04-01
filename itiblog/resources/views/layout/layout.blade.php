@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">ITI</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -17,17 +17,15 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               
               <li class="nav-item">
-                <a class="nav-link" href="/school">School</a>
+                <a class="nav-link" href="{{route('posts.index')}}">Posts</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/school/books">Books</a>
+                <a class="nav-link" href="{{route('users.index')}}">Users</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/school/about">About Us</a>
+              {{-- <li class="nav-item">
+                <a class="nav-link" href="{{route('users.index')}}">Users</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/school/contact">Contact US</a>
-              </li>
+              --}}
               
             </ul>
             
@@ -44,7 +42,9 @@
       <h1 class="text-warning text-center">
         @yield('warning')
       <h1> --}}
-      
+        <h1 class="text-danger text-center">
+          @yield('danger')
+        <h1>
       <div class="container">
           @yield('books')
       </div>
